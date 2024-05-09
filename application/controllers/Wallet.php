@@ -66,7 +66,7 @@ class Wallet extends CI_Controller {
         $this->load->model('PlanModel');
         $data = $this->PlanModel->finalInvest($planData,$walData);
         if ($data) {
-            $newWalletBalance = $walData-$planD
+            $newWalletBalance = $walData-$planD;
         }
         
 

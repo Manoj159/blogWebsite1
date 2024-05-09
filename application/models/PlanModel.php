@@ -5,8 +5,7 @@ class PlanModel extends CI_Model {
     
     public function __construct() {
         parent::__construct();
-        // Load the database library if it's not auto-loaded
-        $this->load->database();
+        // Database is already loaded, no need to load it again here
     }
 
     // Method to insert plan data into the database
@@ -16,12 +15,25 @@ class PlanModel extends CI_Model {
         // Check if the insert was successful
         return $this->db->affected_rows() > 0;
     }
+
+    // Method to retrieve plan by ID
     public function getPlanById($plan_id) {
-    return $this->db->get_where('plans', array('id' => $plan_id))->row_array();
-}
+        return $this->db->get_where('plans', array('plan_id' => $plan_id))->row_array();
+    }
 
-    public function finalInvest($planData,$walData){
-        return $planPrice = plans[plan_price];
+    // Method to calculate final wallet balance after investment
+    public function finalInvest($planData, $walData) {
+        // Access plan price from $planData array
+        $planPrice = $planData['plan_price'];
+        
+        // Assuming $walData is an associative array containing wallet data with a 'balance' key
+        $walletBalance = $walData['balance'];
+        
+        // Deduct plan price from wallet balance
+        $newWalletBalance = $walletBalance - $planPrice;
 
+        // Return the updated wallet balance
+        return $newWalletBalance;
     }
 }
+?>

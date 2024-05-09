@@ -49,7 +49,7 @@
                                 </div>
                             </td>
                             <td>
-                                <button class="btn btn-success invest-btn" onclick="investBtn(<?php echo $plan['id']; ?>)">Invest</button>
+                                <button class="btn btn-success invest-btn" onclick="investBtn(<?php echo $plan['plan_id']; ?>)">Invest</button>
                             </td>
                         </tr>
                     <?php } ?>
