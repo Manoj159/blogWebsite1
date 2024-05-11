@@ -11,7 +11,13 @@ class WalletModel extends CI_Model {
     }
 
     public function updateBalance($user_id, $amount) {
-        $this->db->set('balance', 'balance + ' . $amount, FALSE);
+        $this->db->set('balance', $amount, FALSE);
+        $this->db->where('user_id', $user_id);
+        $this->db->update('wallets');
+    }
+
+    public function addMoney($user_id, $amount) {
+        $this->db->set('balance', 'balance +' . $amount, FALSE);
         $this->db->where('user_id', $user_id);
         $this->db->update('wallets');
     }

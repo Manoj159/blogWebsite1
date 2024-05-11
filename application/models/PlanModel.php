@@ -30,10 +30,14 @@ class PlanModel extends CI_Model {
         $walletBalance = $walData['balance'];
         
         // Deduct plan price from wallet balance
-        $newWalletBalance = $walletBalance - $planPrice;
+        if ($newWalletBalance = $walletBalance - $planPrice) {
+            // Return the updated wallet balance
+        return $newWalletBalance;   
+        echo "Successfully Invested";    
+         }
+        else echo "Low Balance";
 
-        // Return the updated wallet balance
-        return $newWalletBalance;
+       
     }
 }
 ?>
