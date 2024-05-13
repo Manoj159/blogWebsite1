@@ -1,5 +1,19 @@
+<?php include('header.php') ?>
+
+
 <!-- Display wallet balance -->
-<h2>Your Wallet Balance: $<?php echo $wallet['balance']; ?></h2>
+
+<div class="mt-5 container" style=" width: 50%;">
+    <div class="card">
+        <div class="card-header" style="text-align: center;">Wallet</div>
+        <div class="card-body" style="display: flex; flex-direction: row; justify-content: space-between;">
+            <h6>Added Funds</h6>
+            <div style="border: 1px solid black;"><?php echo $wallet['balance']; ?></div>
+            
+        </div>
+    </div>
+</div>
+<h2>Your Wallet Balance: $</h2>
 
 <!-- Form for depositing money into the wallet -->
 <form method="post" action="<?php echo base_url('wallet/deposit'); ?>">
@@ -9,8 +23,9 @@
 <button id="claimButton" class="btn btn-primary" style="display: none;">Claim Daily Income</button>
 
 
-
-$(document).ready(function() {
+<script type="text/javascript">
+    
+    $(document).ready(function() {
     // Check if 24 hours have passed since the last claim
     var lastClaimTime = <?php echo $last_claim_time; ?>; // Get the last claim time from the server
     var now = Math.floor(Date.now() / 1000); // Current timestamp in seconds
@@ -31,3 +46,6 @@ $(document).ready(function() {
     }
 });
 
+</script>
+
+<?php include('footer.php') ?>
