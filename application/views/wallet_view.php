@@ -8,12 +8,21 @@
         <div class="card-header" style="text-align: center;">Wallet</div>
         <div class="card-body" style="display: flex; flex-direction: row; justify-content: space-between;">
             <h6>Added Funds</h6>
-            <div style="border: 1px solid black;"><?php echo $wallet['balance']; ?></div>
-            
+            <div style="display: flex; flex-direction: row; width: 35%; justify-content: space-between; font-weight: bold;">
+            <div style="border: 1px solid black; border-radius: 5px">₹<?php echo $wallet['balance']; ?>/</div>
+            <button class="btn btn-success">Add Funds</button>
+            </div>
+        </div>
+        <div class="card-body" style="display: flex; flex-direction: row; justify-content: space-between;">
+              <h6>winnings</h6>
+            <div style="display: flex; flex-direction: row; width: 35%; justify-content: space-between; font-weight: bold;">
+            <div style="border: 1px solid black; border-radius: 5px">₹<?php echo $wallet['winnings']; ?>/</div>
+            <button class="btn btn-success">withdraw</button>
+            </div>
         </div>
     </div>
 </div>
-<h2>Your Wallet Balance: $</h2>
+
 
 <!-- Form for depositing money into the wallet -->
 <form method="post" action="<?php echo base_url('wallet/deposit'); ?>">
